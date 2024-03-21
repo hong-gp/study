@@ -48,3 +48,12 @@ IP 주소도 마찬가지다. 네트워크 레이어의 IP 프로토콜이, 목�
 이렇게 여러 계층으로 나누는 것을 네트워크 계층화라고 한다.  
 택배가 지역벌 HUB와 터미널을 거쳐서 동네 대리점을 거친 후 집으로 도착하는 것처럼 데이터도 여러 스위치를 거쳐 도착지에 도달하게 된다.
 <br/><br/>
+
+---
+### 참고
+- https://inpa.tistory.com/entry/WEB-%F0%9F%8C%90-IP-%EA%B8%B0%EC%B4%88-%EC%82%AC%EC%84%A4IP-%EA%B3%B5%EC%9D%B8IP-NAT-%EA%B0%9C%EB%85%90-%EC%A0%95%EB%A7%90-%EC%89%BD%EA%B2%8C-%EC%A0%95%EB%A6%AC
+- https://steady-coding.tistory.com/521
+- https://aws-hyoh.tistory.com/70
+- https://www.youtube.com/watch?v=KMEPEdsK71I
+- https://www.youtube.com/watch?v=DfNGidKhY6U
+- https://www.blog.ecsimsw.com/entry/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-MAC-%EC%A3%BC%EC%86%8C%EA%B0%80-%EC%9E%88%EB%8A%94%EB%8D%B0-IP-%EC%A3%BC%EC%86%8C%EA%B0%80-%EC%99%9C-%ED%95%84%EC%9A%94%ED%95%B4
