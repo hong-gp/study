@@ -83,6 +83,16 @@ HTTP/1.1은 모호함을 명확하게 하고 많은 개선 사항들을 도입�
 ![image](https://github.com/hong-gp/study/assets/127091213/3185093c-7886-4b98-9b54-705ded4b3b64)
 <br/>
 
+### Domain sharding
+같은 서버에서 도메인 명을 다르게 해서 리소스를 저장하는 형태  
+반대로 브라우저에서 요청하게 되면 나눠진 도메인에서 리소스를 병렬적으로 다시 보내주는 방식  
+![image](https://github.com/hong-gp/study/assets/127091213/9aa79f12-5f39-41c8-9889-42c797d7aeba)  
+
+도메인마다 커넥션을 맺고 끊음  
+상당한 시간과 대역폭 소모  
+연결할 수 있는 커넥션 수의 제한  
+<br/>
+
 ### 단점
 - HOL Blocking(Head Of Line Blocking)
     - 우선순위로 들어온 요청의 응답 시간이 길어지면 뒤에 있는 요청의 응답 시간도 길어진다.
@@ -133,6 +143,68 @@ Vary: Cookie, Accept-Encoding
 <br/>
 
 ## HTTP 2.0
+웹 페이지는 몇 년에 걸쳐 더 복잡해졌다. 훨씬 더 많은 HTTP 요청을 통해 많은 데이터가 전송되었고 이로 인해
+HTTP/1.1 연결에 복잡성과 오버헤드가 많이 발생했다. 이를 해결하기 위해 Google은 SPDY 프로토콜을 구현했다. 
+중복 데이터 전송 문제를 해결한 SPDY를 기반으로 HTTP/2 프로토콜이 등장하게 되었다.  
+<br/>
+
+- 바이너리 프레이밍 계층을 사용한다.
+    - HTTP 메시지가 캡슐화되어 클라이언트와 서버 사이에 전송되는 방식을 규정한다.
+    - 파싱, 전송 속도 증가, 오류 발생 가능성 감소
+- 멑티플렉싱
+    - 동일한 연결을 통해 병렬 요청을 수행할 수 있다.
+    - 여러개의 스트림을 사용하여 하나의 스트림의 손실이 있더라도 나머지 스트림은 정상 동작
+- 헤더 압축
+    - HPACK 압축방식으로 헤더를 압축
+    - 페이지 로드 시간 감소
+- 서버 푸시
+    - 서버가 클라이언트에게 리소스를 미리 예측하여 푸시할 수 있는 기능
+    - 리소스를 요청할 것으로 예상되는 상황에서 RTT 수를 하나 이상 줄여 빠른 응답 제공
+
+<br/>
+
+### Multiplexing
+#### Frame
+- HTTP/2에서 통신의 최소 단위
+- 최소 하나의 프레임 헤더
+- 바이너리로 인코딩
+
+#### Message
+- 다수의 프레임
+- 요청 응답의 단위
+
+#### Stream
+- 양방향 통신을 통해 전달되는 한 개 이상의 메시지
+
+스트림을 여러개를 통해서 병렬적인 처리를 하게 되면 순차적인 개념이 깨진다.  
+<br/>
+
+### Header Compression
+#### HPACK 압축방식
+헤더 인덱싱을 하고 인코딩을 하는 방식  
+이전에 전달된 중복된 헤더에 대해서는 생략을 하고 새로 들어온 헤더에 대해서는 인코딩한다.
+<br/>
+
+### Server Push
+#### HTTP/1.x
+1. HTML 요청
+2. HTML 태그 파싱
+3. 필요한 리소스 재요청(css, js, ...)
+4. 웹페이지 완성
+
+#### HTTP/2.0
+1. HTML 요청
+2. 웹페이지 완성
+
+![image](https://github.com/hong-gp/study/assets/127091213/4b21f3b9-f9a2-4b5f-b6b1-ba6c9d71c577)
+
+<br/>
+
+### 한계
+TCP 3-핸드 셰이크, TLS 핸드 셰이킹이 동시에 일어나게 되어 성능적인 문제가 있다.
+
+## HTTPS
+
 
 
 <br/>
@@ -143,3 +215,4 @@ Vary: Cookie, Accept-Encoding
 - https://bbo-blog.tistory.com/87
 - https://velog.io/@minu/HTTP1.0-HTTP1.1-HTTP2-and-QUIC
 - https://simgee.tistory.com/28
+- https://blog.cloudflare.com/http-2-for-web-developers
