@@ -28,4 +28,10 @@
 
 <br/>
 
+### 독립 스트림
 
+---
+### 참고
+- https://medium.com/rate-labs/quic-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EA%B5%AC%EA%B8%80-%EB%98%90-%EB%84%88%EC%95%BC-932befde91a1
+- https://www.cdnetworks.com/ko/media-delivery-blog/what-is-quic/
+- https://www.youtube.com/watch?v=xcrjamphIp4
