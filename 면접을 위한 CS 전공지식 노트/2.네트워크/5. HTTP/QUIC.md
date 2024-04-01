@@ -76,8 +76,19 @@ TCP 연결은 소스 IP, 소스 포트, 대상 IP 및 대상 포트의 4튜플�
 
 <br/>
 
+#### FEC(Forward Error Correction)
+송신측 전송 프레임에 부가 정보를 같이 전송해서, 수신측에서 부가 정보를 이용해서 에러 검출 및 수정을 하는 기법
+
+|고려사항|설명|사례|
+|-----|-----|-----|
+|재전송 어려움|- 송신측 한 곳, 수신 측 다수 <br/>  - 재전송, 피드백이 어려운 환경|- 모바일 <br/>  - 무선 환경|
+|신뢰성 필요|- 통신 채널이 열악한 환경 <br/> - 높은 신뢰성이 요구되는 환경|- 군사용 통신 <br/> - 금융 거래|
+
+<br/>
+
 ---
 ### 참고
 - https://medium.com/rate-labs/quic-%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C-%EA%B5%AC%EA%B8%80-%EB%98%90-%EB%84%88%EC%95%BC-932befde91a1
 - https://www.cdnetworks.com/ko/media-delivery-blog/what-is-quic/
 - https://www.youtube.com/watch?v=xcrjamphIp4
+- https://blog.skby.net/fec-%EC%A0%84%EC%A7%84%EC%98%A4%EB%A5%98%EC%88%98%EC%A0%95-forward-error-correction/
